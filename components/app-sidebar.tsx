@@ -2,11 +2,10 @@
 
 import * as React from "react";
 import {
-  IconChartBar,
   IconDashboard,
-  IconFolder,
   IconInnerShadowTop,
-  IconListDetails,
+  IconUser,
+  IconUserPlus,
   IconUsers,
 } from "@tabler/icons-react";
 
@@ -36,18 +35,28 @@ const data = {
     },
     {
       title: "Register student",
-      url: "/register-student",
-      icon: IconListDetails,
+      url: "/encoder/register",
+      icon: IconUserPlus,
+    },
+    {
+      title: "Students",
+      url: "/encoder/students",
+      icon: IconUsers,
     },
     {
       title: "Admin Dashboard",
-      url: "/admin-dashboard",
-      icon: IconChartBar,
+      url: "/admin",
+      icon: IconDashboard,
     },
     {
       title: "Encoders",
-      url: "/encoders",
-      icon: IconFolder,
+      url: "/admin/encoders",
+      icon: IconUser,
+    },
+    {
+      title: "Register encoder",
+      url: "/admin/encoders/create",
+      icon: IconUserPlus,
     },
   ],
 };
@@ -65,7 +74,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
               <a href="#">
                 <IconInnerShadowTop className="!size-5" />
                 <span className="text-base font-semibold">
-                  Souvenir Yearbook
+                  Souvenir Solutions
                 </span>
               </a>
             </SidebarMenuButton>
