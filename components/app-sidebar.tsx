@@ -7,6 +7,8 @@ import {
   IconUser,
   IconUserPlus,
   IconUsers,
+  IconPhoto,
+  IconClock,
 } from "@tabler/icons-react";
 
 import { NavMain } from "@/components/nav-main";
@@ -57,6 +59,22 @@ const data = {
       title: "Register encoder",
       url: "/admin/encoders/create",
       icon: IconUserPlus,
+    },
+
+    {
+      title: "Student Dashboard",
+      url: "/student",
+      icon: IconUser,
+    },
+    {
+      title: "Gallery",
+      url: "/student/gallery",
+      icon: IconPhoto,
+    },
+    {
+      title: "Reunion Countdown",
+      url: "/student/countdown",
+      icon: IconClock,
     },
   ],
 };
