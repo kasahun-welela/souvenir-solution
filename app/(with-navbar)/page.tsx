@@ -4,14 +4,33 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import {
   Card,
-  CardContent,
   CardDescription,
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { BookOpen, Users, Award, Camera } from "lucide-react";
+import { Users, Award, Camera } from "lucide-react";
 
 export default function Home() {
+  const features = [
+    {
+      icon: Users,
+      title: "Connect & Collaborate",
+      description:
+        "Easily connect with classmates, faculty, and alumni. Share stories, photos, and achievements in a secure, interactive environment.",
+    },
+    {
+      icon: Award,
+      title: "Celebrate Achievements",
+      description:
+        "Highlight academic, athletic, and personal milestones. Recognize outstanding individuals and memorable moments with digital awards and badges.",
+    },
+    {
+      icon: Camera,
+      title: "Preserve Memories",
+      description:
+        "Upload, organize, and relive your favorite moments. Our platform ensures your memories are safe, accessible, and beautifully presented for years to come.",
+    },
+  ];
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
@@ -19,9 +38,7 @@ export default function Home() {
         <div className="absolute inset-0 bg-black/20"></div>
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
           <div className="text-center">
-            <div className="flex justify-center mb-6">
-              <BookOpen className="h-16 w-16 text-blue-200" />
-            </div>
+            <div className="flex justify-center mb-6"></div>
             <h1 className="text-4xl md:text-6xl font-bold mb-6">
               Souvenir <span className="text-blue-200">Yearbook</span>
             </h1>
@@ -49,6 +66,37 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Product Features Section */}
+      <section className="bg-white py-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-14">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+              Why Choose Souvenir Solution?
+            </h2>
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+              Souvenir Solution is more than just a digital yearbook. It&apos;s
+              a platform designed to bring your university community together,
+              celebrate milestones, and keep memories alive for years to come.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {features.map((feature) => (
+              <div
+                key={feature.title}
+                className="bg-blue-50 rounded-xl shadow p-8 flex flex-col items-center text-center hover:shadow-lg transition-shadow"
+              >
+                <feature.icon className="h-12 w-12 text-blue-600 mb-4" />
+                <h3 className="text-xl font-semibold text-gray-900 mb-2">
+                  {feature.title}
+                </h3>
+                <p className="text-gray-600">{feature.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Features Section */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -69,17 +117,11 @@ export default function Home() {
                   <Users className="h-6 w-6 text-blue-600" />
                 </div>
                 <CardTitle>Student Management</CardTitle>
-                <CardDescription>
+                <CardDescription className="text-gray-600 pt-3">
                   Efficient registration and approval workflow for student
                   profiles
                 </CardDescription>
               </CardHeader>
-              <CardContent>
-                <p className="text-gray-600">
-                  Streamlined process for data encoders to register students and
-                  admins to approve profiles.
-                </p>
-              </CardContent>
             </Card>
 
             <Card className="border-none shadow-lg hover:shadow-xl transition-shadow">
@@ -88,16 +130,10 @@ export default function Home() {
                   <Award className="h-6 w-6 text-green-600" />
                 </div>
                 <CardTitle>Role-Based Access</CardTitle>
-                <CardDescription>
+                <CardDescription className="text-gray-600 pt-3">
                   Secure dashboards tailored for admins, encoders, and students
                 </CardDescription>
               </CardHeader>
-              <CardContent>
-                <p className="text-gray-600">
-                  Different interfaces and permissions for each user type
-                  ensuring security and usability.
-                </p>
-              </CardContent>
             </Card>
 
             <Card className="border-none shadow-lg hover:shadow-xl transition-shadow">
@@ -106,16 +142,10 @@ export default function Home() {
                   <Camera className="h-6 w-6 text-purple-600" />
                 </div>
                 <CardTitle>Digital Memories</CardTitle>
-                <CardDescription>
+                <CardDescription className="text-gray-600 pt-3">
                   Beautiful photo galleries and social sharing features
                 </CardDescription>
               </CardHeader>
-              <CardContent>
-                <p className="text-gray-600">
-                  Create lasting memories with photo galleries, countdown
-                  timers, and social sharing.
-                </p>
-              </CardContent>
             </Card>
           </div>
         </div>

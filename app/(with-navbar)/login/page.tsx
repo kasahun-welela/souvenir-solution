@@ -20,6 +20,7 @@ import {
   FormControl,
   FormMessage,
 } from "@/components/ui/form";
+import Link from "next/link";
 
 const formSchema = z.object({
   email: z.string().email({ message: "Invalid email address" }),
@@ -38,30 +39,35 @@ function LoginPage() {
   });
 
   function onSubmit(values: z.infer<typeof formSchema>) {
-    // Handle login logic here
     console.log(values);
   }
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-background">
-      <Card className="w-full max-w-sm">
-        <CardHeader>
-          <CardTitle>Login</CardTitle>
+    <div className="py-10 md:py-20 flex items-center justify-center  px-4">
+      <Card className="w-full max-w-md  shadow-2xl rounded-2xl border-0  backdrop-blur-md">
+        <CardHeader className="text-center pb-2">
+          <CardTitle className="text-3xl font-bold text-primary mb-1 tracking-tight">
+            Welcome Back
+          </CardTitle>
+          <p className="text-muted-foreground text-base">
+            Sign in to your account
+          </p>
         </CardHeader>
         <CardContent>
           <Form {...form}>
-            <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+            <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-7">
               <FormField
                 control={form.control}
                 name="email"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Email</FormLabel>
+                    <FormLabel className="text-base">Email</FormLabel>
                     <FormControl>
                       <Input
                         placeholder="you@example.com"
                         type="email"
                         autoComplete="email"
+                        className="h-12 text-base rounded-lg shadow-sm focus:ring-2 focus:ring-primary/40"
                         {...field}
                       />
                     </FormControl>
@@ -74,12 +80,21 @@ function LoginPage() {
                 name="password"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Password</FormLabel>
+                    <div className="flex items-center justify-between">
+                      <FormLabel className="text-base">Password</FormLabel>
+                      <Link
+                        href="/forgot-password"
+                        className="text-sm text-primary hover:underline font-medium"
+                      >
+                        Forgot password?
+                      </Link>
+                    </div>
                     <FormControl>
                       <Input
                         placeholder="••••••••"
                         type="password"
                         autoComplete="current-password"
+                        className="h-12 text-base rounded-lg shadow-sm focus:ring-2 focus:ring-primary/40"
                         {...field}
                       />
                     </FormControl>
@@ -87,10 +102,10 @@ function LoginPage() {
                   </FormItem>
                 )}
               />
-              <CardFooter className="p-0 pt-2">
+              <CardFooter className="p-0 pt-2 flex flex-col gap-3">
                 <Button
                   type="submit"
-                  className="w-full"
+                  className="w-full h-12 rounded-lg text-base font-semibold shadow-md bg-primary hover:bg-primary/90 transition-colors"
                   disabled={form.formState.isSubmitting}
                 >
                   {form.formState.isSubmitting ? "Logging in..." : "Login"}
