@@ -11,9 +11,7 @@ import {
 } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-import { Textarea } from "@/components/ui/textarea";
-import { ArrowLeft, UserPlus, Loader2 } from "lucide-react";
+import { UserPlus, Loader2 } from "lucide-react";
 import { toast } from "sonner";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -21,7 +19,6 @@ import * as z from "zod";
 import {
   Form,
   FormControl,
-  FormDescription,
   FormField,
   FormItem,
   FormLabel,
@@ -29,6 +26,7 @@ import {
 } from "@/components/ui/form";
 import Link from "next/link";
 import { SiteHeader } from "@/components/site-header";
+import { Textarea } from "@/components/ui/textarea";
 
 const encoderSchema = z.object({
   name: z.string().min(2, "Name must be at least 2 characters"),
@@ -202,7 +200,9 @@ export default function CreateEncoderPage() {
                     <li>
                       • The encoder will receive login credentials via email
                     </li>
-                    <li>• They'll have access to the data encoder dashboard</li>
+                    <li>
+                      • They&apos;ll have access to the data encoder dashboard
+                    </li>
                     <li>• They can start registering students immediately</li>
                   </ul>
                 </div>

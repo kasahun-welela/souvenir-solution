@@ -165,7 +165,7 @@ export default function StudentCountdownPage() {
               <div className="text-4xl font-bold mb-2">🎉</div>
               <div className="text-2xl font-bold">The reunion has begun!</div>
               <div className="text-blue-100">
-                Hope you're having an amazing time!
+                Hope you&apos;re having an amazing time!
               </div>
             </div>
           )}
@@ -262,7 +262,7 @@ export default function StudentCountdownPage() {
             <CardHeader>
               <CardTitle>Event Schedule</CardTitle>
               <CardDescription>
-                Here's what to expect during the reunion
+                Here&apos;s what to expect during the reunion
               </CardDescription>
             </CardHeader>
             <CardContent>

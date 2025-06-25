@@ -102,9 +102,17 @@ export default function EncoderStudentsPage() {
     return matchesSearch && matchesStatus;
   });
 
-  const requestApproval = (studentId: string) => {
-    // In a real app, this would send a request to the admin
-    toast.success("Approval request sent to admin!");
+  const requestApproval = (
+    studentId: string,
+    status: "pending" | "approved" | "rejected"
+  ) => {
+    toast.success(`${status} request sent to admin!`);
+
+    setStudents(
+      students.map((student) =>
+        student.id === studentId ? { ...student, status: status } : student
+      )
+    );
   };
 
   const getStatusBadge = (status: Student["status"]) => {
@@ -293,7 +301,9 @@ export default function EncoderStudentsPage() {
                       {student.status === "pending" && (
                         <Button
                           size="sm"
-                          onClick={() => requestApproval(student.id)}
+                          onClick={() =>
+                            requestApproval(student.id, "approved")
+                          }
                           className="bg-blue-600 hover:bg-blue-700"
                         >
                           <Send className="h-4 w-4" />
